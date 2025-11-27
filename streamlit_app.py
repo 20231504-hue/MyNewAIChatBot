@@ -58,8 +58,18 @@ def main() -> None:
         page_icon="✨",
         layout="wide",
     )
-    st.title("Hello Vibe Coding")
-    st.caption("Gemini 1.5 Flash 모델과 대화해 보세요.")
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.title("역사 선생님에게 물어봐!")
+    st.caption("Gemini를 쓴 AI 선생님과 대화해 보세요.")
 
     if "messages" not in st.session_state:
         st.session_state.messages = [
