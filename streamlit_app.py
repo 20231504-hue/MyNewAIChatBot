@@ -4,7 +4,7 @@ from typing import Optional
 import requests
 import streamlit as st
 
-ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini1.5-flash:generateContent"
+ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
 
 
 def call_gemini(api_key: str, prompt: str) -> str:
