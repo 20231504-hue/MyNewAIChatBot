@@ -11,7 +11,8 @@ SYSTEM_PROMPT = (
     "답변은 핵심만 매우 간결하게(1-2문단), 쉬운 말로 설명하고 필요시 예시를 들어줘. "
     "공신력 있는 자료(국사편찬위원회, 교육부, 검증된 교과서)만 사용하고, 위키/블로그는 절대 사용하지 마. "
     "친절하되 과한 칭찬은 하지 말고, 자연스럽게 대화해. "
-    "모든 답변 끝에는 반드시 한두 문장으로 핵심을 요약해줘. "
+    "만약 '만약~했다면?' 같은 창의적/이입 질문이면 학생의 창의성을 존중하며 논리적이고 합리적으로 답변해줘. "
+    "모든 답변 끝에는 반드시 **볼드체로** 한두 문장으로 핵심을 요약해줘. "
     "모든 답변에 상황에 맞는 이모지를 자연스럽게 포함해줘."
 )
 
@@ -95,7 +96,7 @@ def main() -> None:
     st.subheader("대화")
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
-            st.write(message["text"])
+            st.markdown(message["text"])
 
     prompt = st.chat_input("무엇이 궁금한가요?")
 
@@ -106,7 +107,7 @@ def main() -> None:
 
         st.session_state.messages.append({"role": "user", "text": prompt})
         with st.chat_message("user"):
-            st.write(prompt)
+            st.markdown(prompt)
 
         with st.spinner("Gemini에 요청 중..."):
             try:
@@ -120,7 +121,7 @@ def main() -> None:
 
         st.session_state.messages.append({"role": "assistant", "text": answer})
         with st.chat_message("assistant"):
-            st.write(answer)
+            st.markdown(answer)
 
 
 if __name__ == "__main__":
