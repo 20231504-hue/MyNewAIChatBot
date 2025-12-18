@@ -55,7 +55,7 @@ def call_gemini(api_key: str, messages: List[Dict[str, str]]) -> str:
 
 def main() -> None:
     st.set_page_config(
-        page_title="Hello Vibe Coding - Gemini Chatbot",
+        page_title="Hello History Chatbot",
         page_icon="✨",
         layout="wide",
     )
@@ -70,7 +70,7 @@ def main() -> None:
         unsafe_allow_html=True,
     )
     st.title("역사 선생님에게 물어봐!")
-    st.caption("Gemini를 쓴 AI 선생님과 대화해 보세요.")
+    st.caption("역사를 아주 잘 아는 AI 선생님과 대화해 보세요.")
 
     if "messages" not in st.session_state:
         st.session_state.messages = [
